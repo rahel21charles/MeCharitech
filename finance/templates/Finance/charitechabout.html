@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Website Design</title>
+    <link rel= "stylesheet" href="{% static 'finance/Css/charitech.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/917a7c0f3e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+ <section class="sub-header">
+    <nav>
+        <a href ="{% url 'home' %}"><img src="{% static 'finance/Images/crdb.jfif' %}" ></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick ="hideMenu()"></i>
+            <ul>
+                <li><a href="{% url 'home' %}">HOME</a></li>
+                <li><a href="{% url 'about' %}">ABOUT</a></li>
+                <li><a href="{% url 'course' %}">COURSE</a></li>
+                <li><a href="{% url 'blog' %}">BLOG</a></li>
+                <li><a href="{% url 'contact' %}">CONTACT</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick = "showMenu()"></i>
+    </nav>
+    <h1>About Us</h1>
+</section>
+
+<!--ABOUT US CONTENT-->
+<section class="about-us">
+    
+    <div class="row">
+        <div class="about-col">
+            <h1>We are Charitech</h1>
+            <p>Charitech is a non-profit organization </p>
+            <a href="" class="hero-btn green-btn">EXPLORE NOW</a>
+        </div>
+    <div class="about-col">
+        <div class="course-column">
+            <img src="{% static 'finance/Images/donate.jpg' %}" >
+        </div>
+    </div>
+    </div>
+</section>
+
+
+   
+<!--footer-->
+<section class="footer">
+    <hr>
+<div class="icons">
+<i class="fa fa-facebook"></i>
+<i class="fa fa-twitter"></i>
+<i class="fa fa-instagram"></i>
+<i class="fa fa-linkedin"></i>
+</div>
+<p>Made with<i class="fa fa-heart-o"></i> by Easy Tutorial</p>
+</section>
+
+<!--JavaScript--->
+<script>
+    var navbar = document.getElementById("navLinks");
+    function showMenu(){
+        navbar.style.right= "0";
+    }
+    function hideMenu(){
+        navbar.style.right="-200px";
+    }
+</script>
+
+</body>
+</html>

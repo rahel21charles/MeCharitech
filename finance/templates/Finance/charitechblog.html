@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course</title>
+<link rel= "stylesheet" href="{% static 'finance/Css/charitech.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?
+family=popins:wght@100;200;300;400;600;700&display=swap">
+<script src="https://kit.fontawesome.com/917a7c0f3e.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+      <section class="sub-header">
+        <nav>
+            <a href ="{% url 'home' %}"><img src="{% static 'finance/Images/crdb.jfif' %}" ></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick ="hideMenu()"></i>
+                <ul>
+                    <li><a href="{% url 'home' %}">HOME</a></li>
+                    <li><a href="{% url 'about' %}">ABOUT</a></li>
+                    <li><a href="{% url 'course' %}">COURSE</a></li>
+                    <li><a href="{% url 'blog' %}">BLOG</a></li>
+                    <li><a href="{% url 'contact' %}">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"> </i>
+        </nav>
+        <h1>Our Certificate And Online Programs for 2021.</h1>
+      </section>
+
+      <!--Blog page content-->
+      <section class="blog-content">
+        <div class="row">
+            <div class="blog-left">
+                <img src="{% static 'finance/Images/certificate.jpg' %}" >
+                <h2>Our Certificate And Online Programs for 2021.</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Delectus ullam libero suscipit voluptatem architecto odio eius ducimus minima magnam voluptas, 
+                    mollitia repellendus dolore temporibus molestias quos at odit itaque quaerat?
+                </p>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Delectus ullam libero suscipit voluptatem architecto odio eius ducimus minima magnam voluptas, 
+                    mollitia repellendus dolore temporibus molestias quos at odit itaque quaerat?
+                </p>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Delectus ullam libero suscipit voluptatem architecto odio eius ducimus minima magnam voluptas, 
+                    mollitia repellendus dolore temporibus molestias quos at odit itaque quaerat?
+                </p>
+
+                <div class="comment-box">
+                    <h3>Leave a comment</h3>
+                    <form class="comment-form">
+                        <input type="text" placeholder="Enter Name">
+                        <input type="email" placeholder="Enter Email">
+                        <textarea rows="5" placeholder="Your Comment"></textarea>
+                        <button type="submit" class="hero-btn green-btn">POST COMMENT</button>
+                    </form>
+                </div>
+            </div>
+            <div class="blog-right">
+                <h3>Post categories</h3>
+                <div>
+                    <span>Data science</span>
+                    <span>21</span>
+                </div>
+                <div>
+                    <span>Business Analytics</span>
+                    <span>18</span>
+                </div>
+                <div>
+                    <span>Machine learning</span>
+                    <span>17</span>
+                </div>
+
+                <div>
+                    <span>AUTOCAD</span>
+                    <span>42</span>
+                </div>
+
+                <div>
+                    <span>Journalism</span>
+                    <span>22</span>
+                </div>
+
+                <div>
+                    <span>Computer Science</span>
+                    <span>34</span>
+                </div>
+
+                <div>
+                    <span>Commerce</span>
+                    <span>30</span>
+                </div>
+            </div>
+        </div>
+      </section>
+        <!--facilities-->
+        
+<!--Footer-->
+<section class = "footer">
+  
+    <div class="icons">
+        <i class="fa fa-facebook" ></i>
+        <i class="fa fa-twitter" ></i>
+        <i class="fa fa-instagram" ></i> 
+        <i class="fa fa-linkedin" ></i> 
+    </div>
+    <p>With <i class="fa fa-heart-o"></i> from Charitech</p>
+</section>
+<!-- JavaScript for toggling Menu  -->
+<script>
+    var navLinks = document.getElementById("navLinks");
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+</script>
+    </body>
+</html>

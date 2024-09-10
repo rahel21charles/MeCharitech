@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign In and Sign Up Form</title>
+        <link rel="stylesheet" href="{% static 'finance/Css/charitech.css' %}">
+        <script src="https://kit.fontawesome.com/917a7c0f3e.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        {{ message }}
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <div class="form-box">
+               <h1 id="title">Sign Up</h1>
+               <form id="authForm" method="POST" action="{% url 'login_signup' %}">
+                {% csrf_token %}
+                 <div class="input-group">
+                    <div class="input-field" id="nameField">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Name" name="username" id="usernameField">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" placeholder="Email" name="email" id="emailField">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Password" name="password" id="passwordField">
+                    </div>
+
+                    <input type="hidden" name="action" id="action" value="signup">
+                    <p>Lost password <a href="#">Click Here!</a></p>
+                 </div>
+                 <div class="btn-field">
+                    <button type="button" id="signupBtn">Sign up</button>
+                    <button type="button" class="disable" id="signinBtn">Log in</button>
+                 </div>
+               </form> 
+            </div>
+        </div>
+        <script>
+            let signupBtn = document.getElementById("signupBtn");
+            let signinBtn = document.getElementById("signinBtn");
+            let title = document.getElementById("title");
+            let nameField = document.getElementById("nameField");
+            let usernameField = document.getElementById("usernameField");
+            let emailField = document.getElementById("emailField");
+            let passwordField = document.getElementById("passwordField");
+            let actionField = document.getElementById("action");
+            let authForm = document.getElementById("authForm");
+
+            function toggleForm() {
+                let action = actionField.value;
+                if (action === 'signup') {
+                    nameField.style.maxHeight = "60px";
+                    title.innerHTML = "Sign Up";
+                    signupBtn.classList.remove("disable");
+                    signinBtn.classList.add("disable");
+                } else if (action === 'login') {
+                    nameField.style.maxHeight = "0";
+                    title.innerHTML = "Sign In";
+                    signupBtn.classList.add("disable");
+                    signinBtn.classList.remove("disable");
+                }
+            }
+
+            function validateFields() {
+                let action = actionField.value;
+                if (action === 'signup') {
+                    return usernameField.value.trim() !== '' &&
+                           emailField.value.trim() !== '' &&
+                           passwordField.value.trim() !== '';
+                } else if (action === 'login') {
+                    return emailField.value.trim() !== '' &&
+                           passwordField.value.trim() !== '';
+                }
+                return false;
+            }
+
+            function handleFormSubmit() {
+                if (validateFields()) {
+                    authForm.submit();
+                } 
+            }
+
+            signinBtn.onclick = function() {
+                actionField.value = "login";
+                toggleForm();
+            }
+
+            signupBtn.onclick = function() {
+                actionField.value = "signup";
+                toggleForm();
+            }
+
+            signupBtn.addEventListener('click', function() {
+                if (actionField.value === 'signup') {
+                    handleFormSubmit();
+                }
+            });
+
+            signinBtn.addEventListener('click', function() {
+                if (actionField.value === 'login') {
+                    handleFormSubmit();
+                }
+            });
+
+            // Initialize form state on page load
+            toggleForm();
+        </script>
+    </body>
+</html>
