@@ -43,30 +43,34 @@
     <section class = "campus">
         <h1>Multitudes have been given a smile</h1>
         
-        <div class="row">
-        <div class="campus-col">
-            <img src="{% static 'finance/Images/london.png' %}" >
+         <div class="row">
+            <div class="campus-col">
+                <a href="{% url 'blog' %}#blog-section1">
+                    <img src="{% static 'finance/Images/toto.jpg' %}" height="400px">
                     <div class="layer">
                         <h3>Kilimanjaro</h3>
                     </div>
-         </div>
-    
+                    </a>
+            </div>
+        
           <div class="campus-col">
-            <img src="{% static 'finance/Images/newyork.png' %}" >
+            <a href="{% url 'blog' %}#blog-section2">
+            <img src="{% static 'finance/Images/samia.webp' %}" height="400px" >
                     <div class="layer">
-                        <h3>Mbeya</h3>
+                        <h3>Arusha</h3>
                     </div>
+                </a>
          </div>
 
          <div class="campus-col">
-            <img src="{% static 'finance/Images/newyork.png' %}" >
+            <a href="{% url 'blog' %}#blog-section3">
+            <img src="{% static 'finance/Images/Sifa.jpg'%}" height="400px">
                     <div class="layer">
                         <h3>Dar es Salaam</h3>
-                    </div>
+                        </div>
+                    </a>
          </div>
-
-
-        </div>
+         </div>
     </section>
  
     
@@ -99,14 +103,12 @@
             <img src="{% static 'finance/Images/donate.jpg' %}" >
            </a>
         </div>
-
         <div class="course-column" id="course1-col">
-            <a href ="" class="clickable-column">
-            <h3>Volunteer</h3>
-            <img src="{% static 'finance/Images/volunteer.jpg' %}" >
+            <a href="{% url 'new_page' %}#course2">
+                <h3>Volunteer</h3>
+                <img src="{% static 'finance/Images/volunteer.jpg' %}">
             </a>
         </div>
-
          </div>
 </section>
 
@@ -147,9 +149,9 @@
             <label for="charity">Organization:</label>
             <select id ="charity">
                 <option value="org1">Wana organization, Mbeya</option>
-                <option value ="org2">Watoto</option>
-                <option value ="org3">Compassion</option>
-                <option value ="org4">Charity</option>
+                <option value ="org2">Sifa Orphanage,Dar es salaam</option>
+                <option value ="org3">Samaritan Village Orphanage Centre,Arusha</option>
+                <option value ="org4">Vision Trust Centre,Moshi</option>
             </select>
 
             <buttonid="submitBank">Submit</button>
@@ -172,9 +174,9 @@
             <label for ="charity">Organization:</label>
             <select id="charity">
                 <option value="org1">Wana organization, Mbeya</option>
-                <option value ="org2">Watoto</option>
-                <option value ="org3">Compassion</option>
-                <option value ="org4">Charity</option>
+                <option value ="org2">Sifa Orphanage,Dar es salaam</option>
+                <option value ="org3">Samaritan Village Orphanage Centre,Arusha</option>
+                <option value ="org4">Vision Trust Centre,Moshi</option>
             </select>
             <button id="submitPhone">Submit</button>
         </div>
