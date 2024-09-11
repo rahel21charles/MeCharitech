@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout as django_logout
 
 # def login(request):
 #     return render(request, 'finance/login.html')
@@ -57,4 +58,7 @@ def login_signup_view(request):
             
     return render(request, 'registration/login.html')
 
+def logout_view(request):
+    django_logout(request)
+    return render(request, 'registration/login.html')
 

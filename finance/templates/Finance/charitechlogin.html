@@ -20,9 +20,10 @@
                 <ul>
                     <li><a href="{% url 'home' %}">HOME</a></li>
                     <li><a href="{% url 'about' %}">ABOUT</a></li>
-                    <li><a href="{% url 'course' %}">COURSE</a></li>
+                    <li><a href="{% url 'course' %}">DONATE</a></li>
                     <li><a href="{% url 'blog' %}">BLOG</a></li>
                     <li><a href="{% url 'contact' %}">CONTACT</a></li>
+                    <li><a href='{% url "logout" %}'>LOGOUT</a></li>
                 </ul>
             </div>a
             <i class="fa fa-bars" onclick = "showMenu()"></i>
@@ -88,22 +89,97 @@
 
     <!-- Course -->
 
-  <section class ="course">
+  <section class ="course" id="course1">
     <h1>Our Vision</h1>
     <p>In anyway, you can make a difference.</p>
     <div class="row">
-        <div class="course-column">
+        <div class="course-column" id="course1-col">
+           <a href="#" class ="clickable-column" id ="openDonateModal">
             <h3>Donate</h3>
             <img src="{% static 'finance/Images/donate.jpg' %}" >
+           </a>
         </div>
 
-        <div class="course-column">
+        <div class="course-column" id="course1-col">
+            <a href ="" class="clickable-column">
             <h3>Volunteer</h3>
             <img src="{% static 'finance/Images/volunteer.jpg' %}" >
+            </a>
         </div>
 
          </div>
 </section>
+
+ {% comment %} The Modal {% endcomment %}
+
+ <div id ="donateModal" class ="modal">
+    <div class="modal-content">
+        <span class ="close">&times;</span>
+
+        {% comment %} Stage1: Select between Bank or Phone {% endcomment %}
+        <div id ="stage1">
+            <h2>Select Payment Method</h2>
+            <label for ="paymentType">Choose a payment type:</label>
+            <select id ="paymentType">
+                <option value ="" disabled selected>Select</option>
+                <option value ="bank">Bank</option>
+                <option value ="phone">Phone</option>
+            </select>
+            <button id ="continueButton">Continue </button>
+        </div>
+
+        {% comment %} Stage2: Bank form(initially hidden) {% endcomment %}
+        <div id="bankForm" class="form-stage hidden">
+            <h2>Bank Payment</h2>
+            <label for ="bank">Bank:</label>
+            <select id="bank">
+                <option value ="bank1">NMB</option>
+                <option value ="bank2">CRDB</option>
+                <option value ="bank2">TCB</option>
+                <option value ="bank2">Equity</option>
+            </select>
+            <label for="accountNo">Accout No.:</label>
+            <input type ="text" id="accoutNo" placeholder="Enter account number">
+            <label for ="bankAmount">Amount:</label>
+            <input type ="number" id="bankAmount" placeholder="Enter amount">
+            <label for ="bankemail">Email</label>
+            <input type ="email" id="bankEmail" placeholder="Enter email">
+            <label for="charity">Organization:</label>
+            <select id ="charity">
+                <option value="org1">Wana organization, Mbeya</option>
+                <option value ="org2">Watoto</option>
+                <option value ="org3">Compassion</option>
+                <option value ="org4">Charity</option>
+            </select>
+
+            <buttonid="submitBank">Submit</button>
+        </div>
+
+        {% comment %} Stage2: Phone form(initially hidden) {% endcomment %}
+        <div id="phoneForm" class="form-stage hidden">
+            <h2>Phone Payment</h2>
+            <label for="network">Network:</label>
+            <select id="network">
+                <option value ="network1">AirtelMoney</option>
+                <option value ="network2">Mpesa</option>
+                <option value ="network3">Tigopesa</option>
+                <option value ="network4">Halopesa</option>
+            </select>
+            <label for ="phoneAmount">Amount:</label>
+            <input type ="number" id="phoneAmount" placeholder="Enter amount">
+            <label for ="phoneEmail">Email:</label>
+            <input type ="email" id="phoneEmail" placeholder ="Enter email">
+            <label for ="charity">Organization:</label>
+            <select id="charity">
+                <option value="org1">Wana organization, Mbeya</option>
+                <option value ="org2">Watoto</option>
+                <option value ="org3">Compassion</option>
+                <option value ="org4">Charity</option>
+            </select>
+            <button id="submitPhone">Submit</button>
+        </div>
+    </div>
+ </div>
 
     <!-- facilities -->
 
@@ -150,6 +226,25 @@
         }
 
        updateArrows();
+
+       var modal= document.getElementById("donateModal");
+       var openModalBtn = document.getElementById("openDonateModal");
+       var closeBtn = document.getElementByClassName("close")[0];
+
+       openModalBtn.onclick = function(event){
+        event.preventDefault();
+        modal.style.display ="block";
+       }
+
+       closeBtn.onclick =function(){
+        modal.style.display ="none";
+       }
+
+       window.onclick = funtion(event){
+        if(event.target == modal){
+           modal.style.display ="none";
+        }
+       }
     </script>
 </body>
 </html>

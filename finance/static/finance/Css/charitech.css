@@ -185,10 +185,15 @@ p{
     margin-bottom: auto;
     padding:20px 12px; 
     box-sizing: border-box; 
+    /* cursor:pointer; */
 }
 .course-column img{
     width:100%;
     border-radius: 10px;
+    }
+
+#course1-col{
+    /* cursor:pointer; */
 }
 h3{
     text-align: center;
@@ -197,9 +202,26 @@ h3{
 }
 .course-column:hover{
     box-shadow: 0 0 40px 0px rgba(127,255,0,0.75);
-    transition:0.5s
+    transition:0.5s;
+    /* cursor:pointer; */
 }
 
+.clickable-column{
+    display:block;
+    position:relative;
+    text-decoration:none;
+    color:inherit;
+    cursor:pointer;
+}
+.clickable-column::after{
+    content:'→';
+    position:absolute;
+    right:10px;
+    bottom:10px;
+    font-size:24px;
+    color:white;
+    cursor:pointer;
+}
 @media(max-width: 700px){
     .row{
         flex-direction: column;
